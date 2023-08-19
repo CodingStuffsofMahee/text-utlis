@@ -6,7 +6,8 @@ export const Preview = (props) => {
             <div className=' container'>
                 <p>Preview</p>
 
-                <div className="border border-secondary rounded-2 container" style={{ height: '50px' }}>{props.previewText}</div>
+                <div className=" container" style={{ minHeight: '50px' }}>{props.length} Words....</div>
+                <div className="border border-secondary rounded-2 container" style={{ height: '100px',overflowY:"scroll" }}>{props.previewText}</div>
             </div>
         </>
 

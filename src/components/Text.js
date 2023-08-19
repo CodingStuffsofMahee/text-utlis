@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { Preview } from './Preview';
 
 
+
 export const Text = () => {
     function isTextBoxEmpty() {
         if (text === "") {
@@ -13,10 +14,11 @@ export const Text = () => {
         setText(event.target.value)
     }
     function handleUpperCase() {
+
         isTextBoxEmpty()
         setText(text.toUpperCase())
-
     }
+
     function handleLowerCase() {
         isTextBoxEmpty()
         setText(text.toLowerCase())
@@ -43,10 +45,11 @@ export const Text = () => {
     const [text, setText] = useState("")
 
     return (
+
         <>
             <div className="container">
                 <div className=' form-floating m-3'>
-                    <textarea className="form-control" value={text} onChange={(event) => { textFunction(event) }} placeholder="Enter your text here" id="floatingTextarea2" style={{ height: "100px" }}></textarea>
+                    <textarea className="form-control" value={text} onChange={(event) => { textFunction(event) }} placeholder="Enter your text here" id="floatingTextarea2" style={{ minHeight: "100px" }}></textarea>
                     <label htmlFor="floatingTextarea2">Enter your text here</label>
                 </div>
                 <div className='container-fluid d-flex flex-wrap justify-content-center align-items-center'>
@@ -61,8 +64,9 @@ export const Text = () => {
                 </div>
 
             </div>
-            <Preview previewText={text} />
-        </>
+            <Preview previewText={text} length={text===""?0:text.split(' ').length} />
+            {console.log(text)}
+</>
 
     )
 }
